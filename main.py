@@ -28,13 +28,14 @@ Under Putin's rule, the Russian political system has been transformed into an au
     summary_prompt_template = PromptTemplate(
         input_variables=("information"), template=summary_template
     )
-    
+
     # llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
-    llm = ChatOllama(temperature=0, model='gemma3:270m')
+    llm = ChatOllama(temperature=0, model="gemma3:270m")
 
     chain = summary_prompt_template | llm
     response = chain.invoke(input={"information": information})
     print(response.content)
+
 
 if __name__ == "__main__":
     main()
